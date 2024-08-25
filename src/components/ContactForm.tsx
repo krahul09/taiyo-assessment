@@ -3,7 +3,11 @@ import { useDispatch } from "react-redux";
 import { addContact } from "../store/contactSlice";
 import { v4 as uuidv4 } from "uuid";
 
-const ContactForm: React.FC = () => {
+interface ContactFormProps {
+  onSave: () => void;
+}
+
+const ContactForm: React.FC<ContactFormProps> = ({ onSave }) => {
   const dispatch = useDispatch();
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -23,6 +27,7 @@ const ContactForm: React.FC = () => {
       setFirstName("");
       setLastName("");
       setStatus("active");
+      onSave();
     }
   };
 

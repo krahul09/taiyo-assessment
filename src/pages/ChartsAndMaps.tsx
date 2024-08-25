@@ -4,7 +4,7 @@ import Map from "../components/Map";
 
 const ChartsAndMaps: React.FC = () => {
   return (
-    <div className="space-y-8">
+    <div className="space-y-12">
       <h1 className="text-2xl font-bold">Charts and Maps</h1>
       <LineGraph />
       <Map />
