@@ -42,29 +42,6 @@ This project is a React-based contact management application that also includes 
 1. Start the development server: npm start
 2. Open your browser and visit `http://localhost:3000`
 
-## Project Structure
-src/
-├── components/
-│   ├── ContactForm.tsx
-│   ├── ContactList.tsx
-│   ├── ContactDetails.tsx
-│   ├── LineGraph.tsx
-│   └── Map.tsx
-├── pages/
-│   ├── Contacts.tsx
-│   └── ChartsAndMaps.tsx
-├── store/
-│   ├── contactSlice.ts
-│   └── store.ts
-├── hooks/
-│   ├── useApi.ts
-│   └── useInitializeStore.ts
-├── types/
-│   └── index.ts
-├── App.tsx
-└── index.tsx
-
-
 ## Usage
 
 - The app opens on the Contacts page by default.
@@ -105,7 +82,6 @@ Critical cases
 Tests conducted
 Population
 
-
 This data is useful for displaying overall global statistics.
 
 
@@ -122,7 +98,6 @@ Flag image URL
 Cases, deaths, recovered, active cases
 Tests conducted
 Population
-
 
 This data is ideal for creating the interactive map with country-specific information.
 
