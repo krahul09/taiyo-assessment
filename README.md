@@ -1,46 +1,142 @@
-# Getting Started with Create React App
+# Contact Management App with Maps and Charts
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a React-based contact management application that also includes COVID-19 data visualization using maps and charts. It demonstrates the use of modern web development technologies and practices.
 
-## Available Scripts
+## Features
 
-In the project directory, you can run:
+- Contact Management:
+  - Add new contacts with first name, last name, and status
+  - View a list of all contacts
+  - Edit existing contacts
+  - Delete contacts
+- COVID-19 Data Visualization:
+  - Line graph showing case fluctuations over time
+  - Interactive map with country-wise COVID-19 statistics
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- React
+- TypeScript
+- Redux Toolkit for state management
+- React Router for navigation
+- React Query for data fetching
+- Tailwind CSS for styling
+- Chart.js for data visualization
+- React Leaflet for map integration
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Getting Started
 
-### `npm test`
+### Prerequisites
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js (v14 or later)
+- npm (v6 or later)
 
-### `npm run build`
+### Installation
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+1. Clone the repository: git clone https://github.com/your-username/contact-management-app.git
+2. Navigate to the project directory: cd contact-management-app
+3. Install dependencies: npm install
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Running the App
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. Start the development server: npm start
+2. Open your browser and visit `http://localhost:3000`
 
-### `npm run eject`
+## Project Structure
+src/
+├── components/
+│   ├── ContactForm.tsx
+│   ├── ContactList.tsx
+│   ├── ContactDetails.tsx
+│   ├── LineGraph.tsx
+│   └── Map.tsx
+├── pages/
+│   ├── Contacts.tsx
+│   └── ChartsAndMaps.tsx
+├── store/
+│   ├── contactSlice.ts
+│   └── store.ts
+├── hooks/
+│   ├── useApi.ts
+│   └── useInitializeStore.ts
+├── types/
+│   └── index.ts
+├── App.tsx
+└── index.tsx
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## Usage
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- The app opens on the Contacts page by default.
+- Use the sidebar navigation to switch between Contacts and Charts and Maps pages.
+- On the Contacts page:
+  - Click "Create Contact" to add a new contact.
+  - View, edit, or delete existing contacts.
+- On the Charts and Maps page:
+  - View the line graph showing COVID-19 case trends.
+  - Interact with the map to see country-specific COVID-19 data.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## Data Persistence
 
-## Learn More
+Contact data is stored in the browser's localStorage, ensuring that your contacts persist between sessions.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## API Endpoints
+
+The app uses the following API endpoints for COVID-19 data:
+
+- Worldwide data: `https://disease.sh/v3/covid-19/all`
+- Country-specific data: `https://disease.sh/v3/covid-19/countries`
+- Historical data for charts: `https://disease.sh/v3/covid-19/historical/all?lastdays=all`
+
+Breif about the API endpoints
+
+1. Worldwide data: https://disease.sh/v3/covid-19/all
+
+This endpoint provides global COVID-19 statistics.
+It returns a single JSON object with worldwide totals.
+Key data points include:
+
+Total cases
+Total deaths
+Total recovered
+Active cases
+Critical cases
+Tests conducted
+Population
+
+
+This data is useful for displaying overall global statistics.
+
+
+2. Country-specific data: https://disease.sh/v3/covid-19/countries
+
+This endpoint returns COVID-19 statistics for all countries.
+It provides an array of objects, each representing a country.
+For each country, you get:
+
+Country name
+ISO2 and ISO3 country codes
+Latitude and longitude (useful for map plotting)
+Flag image URL
+Cases, deaths, recovered, active cases
+Tests conducted
+Population
+
+
+This data is ideal for creating the interactive map with country-specific information.
+
+
+3. Historical data for charts: https://disease.sh/v3/covid-19/historical/all?lastdays=all
+
+This endpoint provides historical data of COVID-19 cases worldwide.
+It returns a JSON object with three main properties: cases, deaths, and recovered.
+Each property contains date-wise data from the start of the pandemic.
+The data format is: { "date": number_of_cases }
+For example: { "1/22/20": 557, "1/23/20": 657, ... }
+This historical data is perfect for creating time-series charts, like the line graph showing case fluctuations over time.
+
+
+These API endpoints are provided by the disease.sh service, which aggregates COVID-19 data.
+
+
