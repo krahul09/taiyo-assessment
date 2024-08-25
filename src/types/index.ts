@@ -6,6 +6,7 @@ export interface Contact {
 }
 
 export interface CovidData {
+  active: number;
   cases: number;
   deaths: number;
   recovered: number;
@@ -16,6 +17,7 @@ export interface CountryData extends CovidData {
   countryInfo: {
     lat: number;
     long: number;
+    flag: string;
   };
 }
 
